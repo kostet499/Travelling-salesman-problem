@@ -1,0 +1,4 @@
+"D:\CLion\CLion 2017.2.1\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "D:\CLion\Travelling salesman problem\main"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/CLion/Travelling salesman problem/main/cmake-build-debug
