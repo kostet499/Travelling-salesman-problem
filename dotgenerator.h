@@ -21,9 +21,9 @@ class DotGenerator{
     double min_x, dif_x, min_y, dif_y;
     std::vector <coord> field;
 private:
-    coord generate();
+    coord generate() const;
 public:
     DotGenerator(double x_min, double y_min, double x_max, double y_max, int count);
-    std::vector <coord> getField();
+    const std::vector<coord> & getField() const;
 };
 #endif //MAIN_DOTGENERATOR_H

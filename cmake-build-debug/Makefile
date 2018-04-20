@@ -203,6 +203,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+ostov.obj: ostov.cpp.obj
+
+.PHONY : ostov.obj
+
+# target to build an object file
+ostov.cpp.obj:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/ostov.cpp.obj
+.PHONY : ostov.cpp.obj
+
+ostov.i: ostov.cpp.i
+
+.PHONY : ostov.i
+
+# target to preprocess a source file
+ostov.cpp.i:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/ostov.cpp.i
+.PHONY : ostov.cpp.i
+
+ostov.s: ostov.cpp.s
+
+.PHONY : ostov.s
+
+# target to generate assembly for a file
+ostov.cpp.s:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/ostov.cpp.s
+.PHONY : ostov.cpp.s
+
 tester.obj: tester.cpp.obj
 
 .PHONY : tester.obj
@@ -248,6 +275,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... ostov.obj
+	@echo ... ostov.i
+	@echo ... ostov.s
 	@echo ... tester.obj
 	@echo ... tester.i
 	@echo ... tester.s

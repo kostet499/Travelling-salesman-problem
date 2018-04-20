@@ -15,12 +15,12 @@ DotGenerator::DotGenerator(double x_min, double y_min, double x_max, double y_ma
 }
 
 // возвращает массив точек - поле
-std::vector <coord> DotGenerator::getField() {
+const std::vector<coord> & DotGenerator::getField() const{
     return field;
 }
 
 // генерирует точку
-coord DotGenerator::generate() {
+coord DotGenerator::generate() const {
     double u = 0, v = 0, s = 0;
     do {
         u = rand(); v = rand();

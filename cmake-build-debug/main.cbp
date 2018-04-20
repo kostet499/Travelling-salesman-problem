@@ -95,6 +95,12 @@
 		<Unit filename="D:/CLion/Travelling salesman problem/main/main.cpp">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="D:/CLion/Travelling salesman problem/main/ostov.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="D:/CLion/Travelling salesman problem/main/ostov.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="D:/CLion/Travelling salesman problem/main/tester.cpp">
 			<Option target="main"/>
 		</Unit>

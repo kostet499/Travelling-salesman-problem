@@ -18,15 +18,15 @@ public:
     Tester(int start, int end, int experiments);
 
     // получение массива average
-    vector<double> average_statistics();
+    const vector<double>& average_statistics() const;
 
     // получение массива average_evasion
-    vector<double> average_evasion_statistics();
+    const vector<double>& average_evasion_statistics() const;
 
     // подсчет average и evasion для одного конкретного количества вершин
     void count_average(int number, vector <double> &exp);
 
-    friend ostream&operator<<(ostream& os, Tester& test) {
+    friend ostream&operator<<(ostream& os, const Tester& test) {
         for(int i = 0; i < test.vertices; i++)
             cout << test.average[i] << " " << test.average_evasion[i] << endl;
     }

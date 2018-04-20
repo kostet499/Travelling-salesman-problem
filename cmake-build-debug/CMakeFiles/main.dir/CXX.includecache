@@ -27,8 +27,8 @@ set
 -
 
 D:/CLion/Travelling salesman problem/main/graph.h
-dotgenerator.h
-D:/CLion/Travelling salesman problem/main/dotgenerator.h
+ostov.h
+D:/CLion/Travelling salesman problem/main/ostov.h
 unordered_map
 -
 iostream
@@ -37,6 +37,14 @@ iostream
 D:/CLion/Travelling salesman problem/main/main.cpp
 tester.h
 D:/CLion/Travelling salesman problem/main/tester.h
+
+D:/CLion/Travelling salesman problem/main/ostov.cpp
+ostov.h
+D:/CLion/Travelling salesman problem/main/ostov.h
+
+D:/CLion/Travelling salesman problem/main/ostov.h
+dotgenerator.h
+D:/CLion/Travelling salesman problem/main/dotgenerator.h
 
 D:/CLion/Travelling salesman problem/main/tester.cpp
 tester.h

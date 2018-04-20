@@ -46,10 +46,10 @@ void Tester::count_average(int number, vector <double> &exp) {
     average[number] = avrg;
 }
 
-vector<double> Tester::average_statistics() {
+const vector<double>& Tester::average_statistics() const {
     return average;
 }
 
-vector<double> Tester::average_evasion_statistics() {
+const vector<double>& Tester::average_evasion_statistics() const {
     return average_evasion;
 }

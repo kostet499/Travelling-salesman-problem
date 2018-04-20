@@ -5,7 +5,7 @@
 #include "graph.h"
 #include <set>
 
-double Graph::count_distance(coord a, coord b) {
+double Graph::count_distance(coord a, coord b) const{
     int x_dif = a.x - b.x, y_dif = a.y - b.y;
     return sqrt(static_cast<double>(x_dif * x_dif + y_dif * y_dif));
 }
@@ -37,22 +37,6 @@ unordered_map <int, double>::iterator Graph::end(int vertex) {
     return graph[vertex].end();
 }
 
-Ostov::Ostov(int size) {
-    end_size = size;
-    current_size = 0;
-    inTree.resize(end_size, false);
-}
-
-bool Ostov::add(int vertex) {
-    inTree[vertex] = true;
-    current_size++;
-    return current_size == end_size;
-}
-
-bool Ostov::in_tree(int vertex) {
-    return inTree[vertex];
-}
-
 Graph& Graph::operator=(Graph& graph) {
     this -> graph = graph.graph;
     this -> n = graph.n;
@@ -60,11 +44,11 @@ Graph& Graph::operator=(Graph& graph) {
     return *this;
 }
 
-size_t Graph::size() {
+size_t Graph::size() const {
     return n;
 }
 
-size_t Graph::edges_count() {
+size_t Graph::edges_count() const {
     return m;
 }
 

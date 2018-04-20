@@ -3,7 +3,7 @@
 
 #ifndef MAIN_GRAPH_H
 #define MAIN_GRAPH_H
-#include "dotgenerator.h"
+#include "ostov.h"
 #include <unordered_map>
 #include <iostream>
 using namespace std;
@@ -19,9 +19,9 @@ public:
     // дефолтный конструктор
     Graph(size_t n, size_t m);
 
-    size_t size();
+    size_t size() const;
 
-    size_t edges_count();
+    size_t edges_count() const;
 
     unordered_map <int, double>::iterator begin(int vertex);
 
@@ -37,7 +37,7 @@ public:
     Graph buildMST();
 
     // подсчет расстояния между двумя точками
-    double count_distance(coord a, coord b);
+    double count_distance(coord a, coord b) const;
 
     // обход вершин с помощью dfs и возвращения порядка вершин для построения приблизительного решения
     vector <int> walk();
@@ -63,15 +63,4 @@ public:
         }
     }
 };
-
-class Ostov{
-private:
-    int end_size = 0, current_size = 0;
-    vector <bool> inTree;
-public:
-    explicit Ostov(int size);
-    bool add(int vertex);
-    bool in_tree(int vertex);
-};
-
 #endif //MAIN_GRAPH_H

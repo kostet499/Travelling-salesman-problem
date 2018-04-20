@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/dotgenerator.cpp.obj"
   "CMakeFiles/main.dir/graph.cpp.obj"
   "CMakeFiles/main.dir/tester.cpp.obj"
+  "CMakeFiles/main.dir/ostov.cpp.obj"
   "main.pdb"
   "main.exe"
   "main.exe.manifest"
