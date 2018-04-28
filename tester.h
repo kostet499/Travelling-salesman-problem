@@ -1,7 +1,6 @@
-//
-// Created by Toreno on 16.04.2018.
-//
-
+/*
+ * Класс тестирует решение, выводит среднее значение приближения, отклонения
+ */
 #ifndef MAIN_TESTER_H
 #define MAIN_TESTER_H
 
@@ -9,7 +8,7 @@
 
 class Tester {
 private:
-    int vertices;
+    unsigned vertices;
     vector <double> average, average_evasion;
 public:
     // конструктор, в котором всё прогоняется

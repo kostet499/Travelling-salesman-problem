@@ -1,9 +1,4 @@
-//
-// Created by Toreno on 16.04.2018.
-//
-
 #include "tester.h"
-#include <cmath>
 
 Tester::Tester(int start, int end, int experiments) {
     end++;
@@ -24,7 +19,7 @@ Tester::Tester(int start, int end, int experiments) {
 
 vector <double> Tester::run_experiment(int vertices_count) const {
     DotGenerator doter(0, 0, 1000, 1000, vertices_count);
-    vector<coord> field = doter.getField();
+    const vector<coord> &field = doter.getField();
     Graph graph(field);
     double mst_app = mst_solution(graph), optimal = bruteforce_solution(graph, mst_app);
     vector <double> approximations;
@@ -49,12 +44,13 @@ double Tester::bruteforce_solution(Graph& graph, double border) const{
 
 void Tester::count_average(int number, vector <double> &exp) {
     double avrg = 0, evasion = 0;
-    for(int i = 0; i < exp.size(); i++)
-        avrg += exp[i];
+    for(double i : exp)
+        avrg += i;
+
     avrg /= static_cast<double>(exp.size());
 
-    for(int i = 0; i < exp.size(); i++) {
-        double difference = exp[i] - avrg;
+    for(double i : exp) {
+        double difference = i - avrg;
         evasion += difference * difference;
     }
     evasion = sqrt(evasion) / static_cast<double>(exp.size());

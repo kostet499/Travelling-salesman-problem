@@ -42,10 +42,10 @@ RM = "D:\CLion\CLion 2017.2.1\bin\cmake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git"
+CMAKE_SOURCE_DIR = "D:\CLion\Traveller salesman problem"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\cmake-build-debug"
+CMAKE_BINARY_DIR = "D:\CLion\Traveller salesman problem\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -58,16 +58,16 @@ include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/main.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\main.cpp.obj -c "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main.cpp.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\main.cpp.obj -c "D:\CLion\Traveller salesman problem\main.cpp"
 
 CMakeFiles/main.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/main.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\main.cpp" > CMakeFiles\main.dir\main.cpp.i
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Traveller salesman problem\main.cpp" > CMakeFiles\main.dir\main.cpp.i
 
 CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\main.cpp" -o CMakeFiles\main.dir\main.cpp.s
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Traveller salesman problem\main.cpp" -o CMakeFiles\main.dir\main.cpp.s
 
 CMakeFiles/main.dir/main.cpp.obj.requires:
 
@@ -82,16 +82,16 @@ CMakeFiles/main.dir/main.cpp.obj.provides.build: CMakeFiles/main.dir/main.cpp.ob
 
 CMakeFiles/main.dir/dotgenerator.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/dotgenerator.cpp.obj: ../dotgenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/dotgenerator.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\dotgenerator.cpp.obj -c "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\dotgenerator.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/dotgenerator.cpp.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\dotgenerator.cpp.obj -c "D:\CLion\Traveller salesman problem\dotgenerator.cpp"
 
 CMakeFiles/main.dir/dotgenerator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/dotgenerator.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\dotgenerator.cpp" > CMakeFiles\main.dir\dotgenerator.cpp.i
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Traveller salesman problem\dotgenerator.cpp" > CMakeFiles\main.dir\dotgenerator.cpp.i
 
 CMakeFiles/main.dir/dotgenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/dotgenerator.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\dotgenerator.cpp" -o CMakeFiles\main.dir\dotgenerator.cpp.s
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Traveller salesman problem\dotgenerator.cpp" -o CMakeFiles\main.dir\dotgenerator.cpp.s
 
 CMakeFiles/main.dir/dotgenerator.cpp.obj.requires:
 
@@ -106,16 +106,16 @@ CMakeFiles/main.dir/dotgenerator.cpp.obj.provides.build: CMakeFiles/main.dir/dot
 
 CMakeFiles/main.dir/graph.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/graph.cpp.obj: ../graph.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/graph.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\graph.cpp.obj -c "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\graph.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/graph.cpp.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\graph.cpp.obj -c "D:\CLion\Traveller salesman problem\graph.cpp"
 
 CMakeFiles/main.dir/graph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/graph.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\graph.cpp" > CMakeFiles\main.dir\graph.cpp.i
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Traveller salesman problem\graph.cpp" > CMakeFiles\main.dir\graph.cpp.i
 
 CMakeFiles/main.dir/graph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/graph.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\graph.cpp" -o CMakeFiles\main.dir\graph.cpp.s
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Traveller salesman problem\graph.cpp" -o CMakeFiles\main.dir\graph.cpp.s
 
 CMakeFiles/main.dir/graph.cpp.obj.requires:
 
@@ -130,16 +130,16 @@ CMakeFiles/main.dir/graph.cpp.obj.provides.build: CMakeFiles/main.dir/graph.cpp.
 
 CMakeFiles/main.dir/tester.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/tester.cpp.obj: ../tester.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/tester.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\tester.cpp.obj -c "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\tester.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/tester.cpp.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\tester.cpp.obj -c "D:\CLion\Traveller salesman problem\tester.cpp"
 
 CMakeFiles/main.dir/tester.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/tester.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\tester.cpp" > CMakeFiles\main.dir\tester.cpp.i
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Traveller salesman problem\tester.cpp" > CMakeFiles\main.dir\tester.cpp.i
 
 CMakeFiles/main.dir/tester.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/tester.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\tester.cpp" -o CMakeFiles\main.dir\tester.cpp.s
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Traveller salesman problem\tester.cpp" -o CMakeFiles\main.dir\tester.cpp.s
 
 CMakeFiles/main.dir/tester.cpp.obj.requires:
 
@@ -154,16 +154,16 @@ CMakeFiles/main.dir/tester.cpp.obj.provides.build: CMakeFiles/main.dir/tester.cp
 
 CMakeFiles/main.dir/ostov.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/ostov.cpp.obj: ../ostov.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/ostov.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\ostov.cpp.obj -c "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\ostov.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/ostov.cpp.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\ostov.cpp.obj -c "D:\CLion\Traveller salesman problem\ostov.cpp"
 
 CMakeFiles/main.dir/ostov.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/ostov.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\ostov.cpp" > CMakeFiles\main.dir\ostov.cpp.i
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Traveller salesman problem\ostov.cpp" > CMakeFiles\main.dir\ostov.cpp.i
 
 CMakeFiles/main.dir/ostov.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/ostov.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\ostov.cpp" -o CMakeFiles\main.dir\ostov.cpp.s
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Traveller salesman problem\ostov.cpp" -o CMakeFiles\main.dir\ostov.cpp.s
 
 CMakeFiles/main.dir/ostov.cpp.obj.requires:
 
@@ -196,7 +196,7 @@ main.exe: CMakeFiles/main.dir/build.make
 main.exe: CMakeFiles/main.dir/linklibs.rsp
 main.exe: CMakeFiles/main.dir/objects1.rsp
 main.exe: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable main.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable main.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\main.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -217,6 +217,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git" "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git" "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\cmake-build-debug" "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\cmake-build-debug" "D:\CLion\Travelling salesman problem\Travelling-salesman-problem.git\cmake-build-debug\CMakeFiles\main.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\CLion\Traveller salesman problem" "D:\CLion\Traveller salesman problem" "D:\CLion\Traveller salesman problem\cmake-build-debug" "D:\CLion\Traveller salesman problem\cmake-build-debug" "D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles\main.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

@@ -1,17 +1,13 @@
-//
-// Created by Toreno on 15.04.2018.
-//
-
 #include "graph.h"
 #include <set>
-#include <cmath>
+#include "ostov.h"
 
 double Graph::count_distance(coord a, coord b) const{
     int x_dif = a.x - b.x, y_dif = a.y - b.y;
     return sqrt(static_cast<double>(x_dif * x_dif + y_dif * y_dif));
 }
 
-Graph::Graph(vector<coord> field) {
+Graph::Graph(const vector<coord> &field) {
     n = field.size();
     m = (n * (n - 1)) / 2;
     graph.resize(field.size());
@@ -36,13 +32,6 @@ unordered_map <int, double>::iterator Graph::begin(int vertex) {
 
 unordered_map <int, double>::iterator Graph::end(int vertex) {
     return graph[vertex].end();
-}
-
-Graph& Graph::operator=(Graph& graph) {
-    this -> graph = graph.graph;
-    this -> n = graph.n;
-    this -> m = graph.m;
-    return *this;
 }
 
 size_t Graph::size() const {
@@ -105,7 +94,7 @@ vector <int> Graph::walk() {
     return stock;
 }
 
-double Graph::count_way(vector <int> order) {
+double Graph::count_way(const vector <int> &order) {
     double answer = 0;
     for(int i = 1; i < order.size(); i++)
         answer += graph[order[i - 1]][order[i]];

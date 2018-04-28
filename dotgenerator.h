@@ -1,7 +1,7 @@
-//
-// Created by Toreno on 15.04.2018.
-//
-
+/*
+ * Класс, реализующий нормальное распределение точек на поле
+ * через преобразования Бокса-Мюллера
+ */
 #ifndef MAIN_DOTGENERATOR_H
 #define MAIN_DOTGENERATOR_H
 #include <vector>

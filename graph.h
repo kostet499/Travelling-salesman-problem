@@ -1,9 +1,11 @@
-/* Класс графа для нахождения решения
+/*
+ * Класс графа для нахождения решения
  */
 
 #ifndef MAIN_GRAPH_H
 #define MAIN_GRAPH_H
-#include "ostov.h"
+#include <vector>
+#include "dotgenerator.h"
 #include <unordered_map>
 #include <iostream>
 using namespace std;
@@ -14,7 +16,7 @@ private:
     size_t n, m;
 public:
     // постройка графа по полю
-    Graph(vector <coord> field);
+    explicit Graph(const vector <coord> &field);
 
     // дефолтный конструктор
     Graph(size_t n, size_t m);
@@ -31,8 +33,6 @@ public:
 
     vector <unordered_map <int, double> >:: iterator end();
 
-    Graph&operator=(Graph& graph);
-
     //постройка минимального остовного дерева с помощью алгоритма Прима
     Graph buildMST();
 
@@ -43,7 +43,7 @@ public:
     vector <int> walk();
 
     // подсчет решения по порядку вершин в массиве order
-    double count_way(vector <int> order);
+    double count_way(const vector <int> &order);
 
     // нахождение оптимального решения перебором за факториал
     void optimal_solution(int vertex, double &answer, double &minim, vector <bool> &way, int &vertices);
