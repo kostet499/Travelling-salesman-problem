@@ -23,6 +23,11 @@ public:
     // получение массива average_evasion
     const vector<double>& average_evasion_statistics() const;
 
+    double mst_solution(Graph&) const;
+
+    double bruteforce_solution(Graph&, double) const;
+
+    vector<double> run_experiment(int) const;
     // подсчет average и evasion для одного конкретного количества вершин
     void count_average(int number, vector <double> &exp);
 

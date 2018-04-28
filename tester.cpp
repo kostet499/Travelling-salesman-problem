@@ -3,6 +3,9 @@
 //
 
 #include "tester.h"
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
 
 Tester::Tester(int start, int end, int experiments) {
     srand(time(NULL));
@@ -14,21 +17,37 @@ Tester::Tester(int start, int end, int experiments) {
     for(int vers = start; vers < end; vers++) {
         vector <double> exp(experiments);
         for(int i = 0; i < experiments; i++) {
-            DotGenerator doter(0, 0, 1000, 1000, vers);
-            vector<coord> field = doter.getField();
-            Graph graph(field);
-            Graph mst = graph.buildMST();
-            double heur = graph.count_way(mst.walk());
-
-            vector<bool> way(graph.size(), true);
-            int size = 1;
-            double optimal = heur, processing = 0;
-            graph.optimal_solution(0, processing, optimal, way, size);
-            exp[i] = heur / optimal;
-            //cout << heur << " " << optimal << " " << heur / optimal << endl;
+            vector <double> approx = run_experiment(vers);
+            exp[i] = approx[0] / approx[1];
         }
         count_average(vers - start, exp);
     }
+}
+
+
+vector <double> Tester::run_experiment(int vertices_count) const {
+    DotGenerator doter(0, 0, 1000, 1000, vertices_count);
+    vector<coord> field = doter.getField();
+    Graph graph(field);
+    double mst_app = mst_solution(graph), optimal = bruteforce_solution(graph, mst_app);
+    vector <double> approximations;
+    approximations.emplace_back(mst_app);
+    approximations.emplace_back(optimal);
+    return approximations;
+}
+
+
+double Tester::mst_solution(Graph& graph) const{
+    Graph mst = graph.buildMST();
+    return graph.count_way(mst.walk());
+}
+
+double Tester::bruteforce_solution(Graph& graph, double border) const{
+    vector<bool> way(graph.size(), true);
+    int size = 1;
+    double processing = 0;
+    graph.optimal_solution(0, processing, border, way, size);
+    return border;
 }
 
 void Tester::count_average(int number, vector <double> &exp) {

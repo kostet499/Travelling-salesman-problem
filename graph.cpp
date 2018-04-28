@@ -4,6 +4,7 @@
 
 #include "graph.h"
 #include <set>
+#include <cmath>
 
 double Graph::count_distance(coord a, coord b) const{
     int x_dif = a.x - b.x, y_dif = a.y - b.y;
@@ -90,7 +91,7 @@ Graph Graph::buildMST() {
 }
 
 void Graph::dfs(int vertex, vector <int> &stock, vector <bool> &visited) {
-    stock.push_back(vertex);
+    stock.emplace_back(vertex);
     visited[vertex] = true;
     for(auto i = begin(vertex); i != end(vertex); i++)
         if(!visited[i->first])

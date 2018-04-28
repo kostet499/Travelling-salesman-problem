@@ -4,11 +4,8 @@
 
 #ifndef MAIN_DOTGENERATOR_H
 #define MAIN_DOTGENERATOR_H
-
 #include <vector>
-#include <cmath>
-#include <random>
-#include <ctime>
+
 struct coord {
     int x, y;
     coord(int new_x,int new_y) {

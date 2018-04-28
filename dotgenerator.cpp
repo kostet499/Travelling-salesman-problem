@@ -2,6 +2,9 @@
  * через преобразования Бокса-Мюллера
  */
 #include "dotgenerator.h"
+#include <cmath>
+#include <random>
+#include <ctime>
 
 // x_min, y_min - координаты левой нижней токи поля, x_max, y_max - правой верхней, count - количество точек
 DotGenerator::DotGenerator(double x_min, double y_min, double x_max, double y_max, int count) {
