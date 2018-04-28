@@ -3,12 +3,9 @@
 //
 
 #include "tester.h"
-#include <cstdlib>
-#include <ctime>
 #include <cmath>
 
 Tester::Tester(int start, int end, int experiments) {
-    srand(time(NULL));
     end++;
     vertices = end - start;
     average.resize(vertices);
