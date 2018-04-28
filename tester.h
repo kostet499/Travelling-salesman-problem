@@ -8,7 +8,9 @@
 
 class Tester {
 private:
+    //количество вершин, на которых произвести тест(передается пользователем)
     unsigned vertices;
+    //массивы средних значений и уклонений от среднего для каждой вершины по количеству экспериментов
     vector <double> average, average_evasion;
 public:
     // конструктор, в котором всё прогоняется
@@ -22,11 +24,15 @@ public:
     // получение массива average_evasion
     const vector<double>& average_evasion_statistics() const;
 
+    // приближение остовным деревом
     double mst_solution(Graph&) const;
 
+    // решение перебором
     double bruteforce_solution(Graph&, double) const;
 
+    //проведение одной генерации поля и запуска алгоритмов приближения
     vector<double> run_experiment(int) const;
+
     // подсчет average и evasion для одного конкретного количества вершин
     void count_average(int number, vector <double> &exp);
 

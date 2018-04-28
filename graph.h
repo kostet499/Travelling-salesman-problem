@@ -21,8 +21,10 @@ public:
     // дефолтный конструктор
     Graph(size_t n, size_t m);
 
+    // количество вершин
     size_t size() const;
 
+    //количество ребер
     size_t edges_count() const;
 
     unordered_map <int, double>::iterator begin(int vertex);
@@ -48,6 +50,7 @@ public:
     // нахождение оптимального решения перебором за факториал
     void optimal_solution(int vertex, double &answer, double &minim, vector <bool> &way, int &vertices);
 
+    // дфс обход для приближения
     void dfs(int vertex, vector <int> &stock, vector <bool> &visited);
 
     friend istream&operator>> (istream& is, Graph& gr) {
