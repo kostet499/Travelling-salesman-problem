@@ -1,3 +1,3 @@
-D:/CLion/Travelling salesman problem/main/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/CLion/Travelling salesman problem/main/cmake-build-debug/CMakeFiles/main.dir
-D:/CLion/Travelling salesman problem/main/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/cmake-build-debug/CMakeFiles/main.dir
+D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/cmake-build-debug/CMakeFiles/rebuild_cache.dir

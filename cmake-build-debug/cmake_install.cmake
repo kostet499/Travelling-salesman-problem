@@ -1,4 +1,4 @@
-# Install script for directory: D:/CLion/Travelling salesman problem/main
+# Install script for directory: D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/CLion/Travelling salesman problem/main/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

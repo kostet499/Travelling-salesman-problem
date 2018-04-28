@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/CLion/Travelling salesman problem/main/dotgenerator.cpp" "D:/CLion/Travelling salesman problem/main/cmake-build-debug/CMakeFiles/main.dir/dotgenerator.cpp.obj"
-  "D:/CLion/Travelling salesman problem/main/graph.cpp" "D:/CLion/Travelling salesman problem/main/cmake-build-debug/CMakeFiles/main.dir/graph.cpp.obj"
-  "D:/CLion/Travelling salesman problem/main/main.cpp" "D:/CLion/Travelling salesman problem/main/cmake-build-debug/CMakeFiles/main.dir/main.cpp.obj"
-  "D:/CLion/Travelling salesman problem/main/ostov.cpp" "D:/CLion/Travelling salesman problem/main/cmake-build-debug/CMakeFiles/main.dir/ostov.cpp.obj"
-  "D:/CLion/Travelling salesman problem/main/tester.cpp" "D:/CLion/Travelling salesman problem/main/cmake-build-debug/CMakeFiles/main.dir/tester.cpp.obj"
+  "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/dotgenerator.cpp" "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/cmake-build-debug/CMakeFiles/main.dir/dotgenerator.cpp.obj"
+  "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/graph.cpp" "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/cmake-build-debug/CMakeFiles/main.dir/graph.cpp.obj"
+  "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/main.cpp" "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/cmake-build-debug/CMakeFiles/main.dir/main.cpp.obj"
+  "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/ostov.cpp" "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/cmake-build-debug/CMakeFiles/main.dir/ostov.cpp.obj"
+  "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/tester.cpp" "D:/CLion/Travelling salesman problem/Travelling-salesman-problem.git/cmake-build-debug/CMakeFiles/main.dir/tester.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
