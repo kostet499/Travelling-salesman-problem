@@ -58,6 +58,10 @@ MaxFlow::MaxFlow(DinicMatrix &graph) {
     }
 }
 
-const vector <int>& MaxFlow::get_network() {
+const vector <int>& MaxFlow::get_network() const {
+    return network;
+}
+
+vector <int>& MaxFlow::get_not_const_network() {
     return network;
 }

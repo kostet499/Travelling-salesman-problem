@@ -20,7 +20,9 @@ private:
 public:
     explicit MaxFlow(DinicMatrix &graph);
     // получить сеть
-    const vector <int>& get_network();
+    const vector <int>& get_network() const;
+
+    vector <int>& get_not_const_network();
 };
 
 #endif //MAIN_MAXFLOWAPPROXIMATION_H

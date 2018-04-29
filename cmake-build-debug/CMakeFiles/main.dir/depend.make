@@ -9,9 +9,11 @@ CMakeFiles/main.dir/DinicMatrix.cpp.obj: ../graph.h
 CMakeFiles/main.dir/dotgenerator.cpp.obj: ../dotgenerator.cpp
 CMakeFiles/main.dir/dotgenerator.cpp.obj: ../dotgenerator.h
 
+CMakeFiles/main.dir/graph.cpp.obj: ../DinicMatrix.h
 CMakeFiles/main.dir/graph.cpp.obj: ../dotgenerator.h
 CMakeFiles/main.dir/graph.cpp.obj: ../graph.cpp
 CMakeFiles/main.dir/graph.cpp.obj: ../graph.h
+CMakeFiles/main.dir/graph.cpp.obj: ../maxflowapproximation.h
 CMakeFiles/main.dir/graph.cpp.obj: ../ostov.h
 
 CMakeFiles/main.dir/main.cpp.obj: ../dotgenerator.h

@@ -30,10 +30,10 @@ vector <double> Tester::run_experiment(int vertices_count) const {
 }
 
 double Tester::flow_solution(Graph& graph) const {
-    double answer = 0, current = 0;
+    double answer = 1000000000, current = 0;
     for (unsigned i = 1; i < graph.size(); i++) {
         Graph flow_way = graph.build_flow_way(0, i);
-        current = graph.count_way(flow_way.walk());
+        current = flow_way.count_way(flow_way.walk());
         if(current < answer)
             answer = current;
     }
@@ -42,7 +42,7 @@ double Tester::flow_solution(Graph& graph) const {
 
 double Tester::mst_solution(Graph& graph) const{
     Graph mst = graph.buildMST();
-    return graph.count_way(mst.walk());
+    return mst.count_way(mst.walk());
 }
 
 double Tester::bruteforce_solution(Graph& graph, double border) const{

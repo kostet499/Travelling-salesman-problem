@@ -9,13 +9,15 @@ DinicMatrix::DinicMatrix(Graph& graph,
     n = 0;
     m = 1;
     for(int i = 0; i < network.size(); i++) {
-        if(network[i] > -1 || (network[i] == -1 && mode)) {
+        if ((network[i] > -1 && !mode) || (network[i] == -1 && mode)) {
+            if(spec[i] == start)
+                this->start = special.size();
+            if(spec[i] == end)
+                this->end = special.size();
             special.emplace_back(spec[i]);
             n++;
         }
     }
-    this->start = start;
-    this->end = end;
 
     matrix.resize(n);
     for(int i = 0; i < n; i++) {

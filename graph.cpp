@@ -89,13 +89,14 @@ double Graph::count_way(const vector <int> &order) {
     if(order.size() != graph.size())
         throw;
     vector <int> checker(order.size(), 0);
-    checker[0] = 1;
+    checker[order[0]] = 1;
     for(int i = 1; i < order.size(); i++) {
         answer += graph[order[i - 1]][order[i]];
-        checker[i]++;
-        if(checker[i] > 1)
-            throw;
+        checker[order[i]]++;
     }
+    for(int i = 0; i < checker.size(); i++)
+        if(checker[i] != 1)
+            throw;
     answer += graph[order[order.size() - 1]][0];
     return answer;
 }
@@ -138,25 +139,34 @@ Graph Graph::build_flow_way(unsigned start, unsigned end) {
     while(!myq.empty()) {
         DinicMatrix &dinic = myq.front();
         MaxFlow flow(dinic);
-
-        pair <int, int> edge = flow_way.choose_edge(dinic.get_special(), flow.get_network(), dinic.get_start(), dinic.get_end());
+        int start_value = dinic.get_special()[dinic.get_start()], end_value = dinic.get_special()[dinic.get_end()];
+        pair <int, int> edge = this -> choose_edge(dinic.get_special(), flow.get_network(), start_value, end_value);
 
         flow_way.add_edge(graph, edge.first, edge.second);
-        
-        DinicMatrix itock(*this, flow.get_network(), dinic.get_special(), dinic.get_start(), edge.first, false),
-                    stock(*this, flow.get_network(), dinic.get_special(), edge.second, dinic.get_end() , true);
+        if(edge.second == end_value) {
+            fill(flow.get_not_const_network().begin(), flow.get_not_const_network().end(), 0);
+            flow.get_not_const_network()[dinic.get_end()] = -1;
+        }
+        DinicMatrix itock(*this, flow.get_network(), dinic.get_special(), start_value, edge.first, false);
+
+        if(edge.first == start_value) {
+            fill(flow.get_not_const_network().begin(), flow.get_not_const_network().end(), -1);
+            flow.get_not_const_network()[dinic.get_start()] = 0;
+        }
+        DinicMatrix stock(*this, flow.get_network(), dinic.get_special(), edge.second, end_value, true);
         
         if(itock.size() > 2)
             myq.push(itock);
         else if(itock.size() == 2)
-            flow_way.add_edge(graph, itock.get_start(), itock.get_end());
+            flow_way.add_edge(graph, itock.get_special()[itock.get_start()], itock.get_special()[itock.get_end()]);
 
         if(stock.size() > 2)
             myq.push(stock);
         else if(stock.size() == 2)
-            flow_way.add_edge(graph, stock.get_start(), stock.get_end());
+            flow_way.add_edge(graph, stock.get_special()[stock.get_start()], stock.get_special()[stock.get_end()]);
         myq.pop();
     }
+    //костыль, удаление чудом появившися фиктивных ребер
 
     return flow_way;
 }
@@ -164,8 +174,10 @@ Graph Graph::build_flow_way(unsigned start, unsigned end) {
 void Graph::add_edge(vector<unordered_map<int, double> >& another_graph, int starting, int ending) {
     if(another_graph[starting].find(ending) == another_graph[starting].end())
         throw;
-    graph[starting][ending] = another_graph[starting][ending];
-    graph[ending][starting] = another_graph[ending][starting];
+    if(another_graph[starting][ending] > 0.01)
+        graph[starting][ending] = another_graph[starting][ending];
+    if(another_graph[ending][starting] > 0.01)
+        graph[ending][starting] = another_graph[ending][starting];
 }
 
 pair <int, int> Graph::choose_edge(const vector <int>& special, const vector <int>& network, unsigned str, unsigned end) {
