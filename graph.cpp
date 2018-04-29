@@ -1,6 +1,8 @@
 #include "graph.h"
 #include <set>
+#include <queue>
 #include "ostov.h"
+#include "maxflowapproximation.h"
 
 double Graph::count_distance(coord a, coord b) const{
     int x_dif = a.x - b.x, y_dif = a.y - b.y;
@@ -84,8 +86,16 @@ vector <int> Graph::walk() const {
 
 double Graph::count_way(const vector <int> &order) {
     double answer = 0;
-    for(int i = 1; i < order.size(); i++)
+    if(order.size() != graph.size())
+        throw;
+    vector <int> checker(order.size(), 0);
+    checker[0] = 1;
+    for(int i = 1; i < order.size(); i++) {
         answer += graph[order[i - 1]][order[i]];
+        checker[i]++;
+        if(checker[i] > 1)
+            throw;
+    }
     answer += graph[order[order.size() - 1]][0];
     return answer;
 }
@@ -115,6 +125,74 @@ void Graph::optimal_solution(int vertex, double &answer, double &minim, vector<b
     }
 }
 
-double Graph::build_flow_way(unsigned start, unsigned end) {
+Graph Graph::build_flow_way(unsigned start, unsigned end) {
+    Graph flow_way(graph.size(), graph.size() - 1);
 
+    vector<int> pre_network(graph.size());
+    for(int i = 0; i < pre_network.size(); i++)
+        pre_network[i] = i;
+    DinicMatrix first(*this, pre_network, pre_network, start, end, false);
+    queue <DinicMatrix> myq;
+    myq.push(first);
+
+    while(!myq.empty()) {
+        DinicMatrix &dinic = myq.front();
+        MaxFlow flow(dinic);
+
+        pair <int, int> edge = flow_way.choose_edge(dinic.get_special(), flow.get_network(), dinic.get_start(), dinic.get_end());
+
+        flow_way.add_edge(graph, edge.first, edge.second);
+        
+        DinicMatrix itock(*this, flow.get_network(), dinic.get_special(), dinic.get_start(), edge.first, false),
+                    stock(*this, flow.get_network(), dinic.get_special(), edge.second, dinic.get_end() , true);
+        
+        if(itock.size() > 2)
+            myq.push(itock);
+        else if(itock.size() == 2)
+            flow_way.add_edge(graph, itock.get_start(), itock.get_end());
+
+        if(stock.size() > 2)
+            myq.push(stock);
+        else if(stock.size() == 2)
+            flow_way.add_edge(graph, stock.get_start(), stock.get_end());
+        myq.pop();
+    }
+
+    return flow_way;
 }
+
+void Graph::add_edge(vector<unordered_map<int, double> >& another_graph, int starting, int ending) {
+    if(another_graph[starting].find(ending) == another_graph[starting].end())
+        throw;
+    graph[starting][ending] = another_graph[starting][ending];
+    graph[ending][starting] = another_graph[ending][starting];
+}
+
+pair <int, int> Graph::choose_edge(const vector <int>& special, const vector <int>& network, unsigned str, unsigned end) {
+    int edge_start = -1, edge_end = -1;
+    double min_cost = 1000000000;
+
+    for(int i = 0; i < network.size(); i++) {
+        for(int j = i + 1; j < network.size(); j++) {
+            if(special[i] == str && special[j] == end)
+                continue;
+            if(special[j] == str && special[i] == end)
+                continue;
+
+            if((network[i] == -1 && network[j] != -1 && graph[j][i] < min_cost)) {
+                min_cost = graph[j][i];
+                edge_start = special[j];
+                edge_end = special[i];
+            }
+            if((network[j] == -1 && network[i] != -1 && graph[i][j] < min_cost)) {
+                min_cost = graph[i][j];
+                edge_start = special[i];
+                edge_end = special[j];
+            }
+        }
+    }
+
+    if(edge_start == -1)
+        throw;
+    return make_pair(edge_start, edge_end);
+};

@@ -1,11 +1,11 @@
 /*
- * Класс для приближения лучше, чем 1,5
+ * Класс для поиска максимального потока
  */
 #ifndef MAIN_MAXFLOWAPPROXIMATION_H
 #define MAIN_MAXFLOWAPPROXIMATION_H
 #include "DinicMatrix.h"
 #include <queue>
-class MaxFlowApproximation {
+class MaxFlow {
 private:
     double answer = 0;
     unsigned start = 0, end = 0;
@@ -17,11 +17,10 @@ private:
     // создание блокирующего потока
     double break_flow(DinicMatrix &graph, int vertex, double current);
 
-    const vector <int>& get_network();
-
 public:
-    explicit MaxFlowApproximation(DinicMatrix &graph);
-
+    explicit MaxFlow(DinicMatrix &graph);
+    // получить сеть
+    const vector <int>& get_network();
 };
 
 #endif //MAIN_MAXFLOWAPPROXIMATION_H

@@ -1,8 +1,13 @@
 #include "DinicMatrix.h"
 
-DinicMatrix::DinicMatrix(Graph& graph, vector<int>& network, vector<unsigned> &spec, unsigned start, unsigned end, bool mode) {
+DinicMatrix::DinicMatrix(Graph& graph,
+                         const vector<int> &network,
+                         const vector<int> &spec,
+                         unsigned start,
+                         unsigned end,
+                         bool mode) {
     n = 0;
-    m = 0;
+    m = 1;
     for(int i = 0; i < network.size(); i++) {
         if(network[i] > -1 || (network[i] == -1 && mode)) {
             special.emplace_back(spec[i]);
@@ -14,9 +19,9 @@ DinicMatrix::DinicMatrix(Graph& graph, vector<int>& network, vector<unsigned> &s
 
     matrix.resize(n);
     for(int i = 0; i < n; i++) {
+        matrix[i].resize(n, 0.000);
         if(special[i] == end)
             continue;
-        matrix[i].resize(n, 0.000);
         for(int j = 0; j < n; j++)
             if(special[j] != start)
                 matrix[i][j] = (*(graph.begin() + special[i]))[special[j]];
@@ -41,7 +46,7 @@ unsigned DinicMatrix::get_end() const {
     return end;
 }
 
-const vector <unsigned>& DinicMatrix::get_special() {
+const vector <int>& DinicMatrix::get_special() {
     return special;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Класс графа для нахождения решения
+ * Класс графа с большой функциональнойстью
  */
 
 #ifndef MAIN_GRAPH_H
@@ -29,10 +29,14 @@ public:
 
     vector <unordered_map <int, double> >:: iterator begin();
 
-    double build_flow_way(unsigned start, unsigned end);
+    Graph build_flow_way(unsigned start, unsigned end);
 
     //постройка минимального остовного дерева с помощью алгоритма Прима
     Graph buildMST() const;
+
+    void add_edge(vector < unordered_map <int, double> >&, int starting, int ending);
+
+    pair <int, int> choose_edge(const vector <int>&, const vector <int>&, unsigned, unsigned);
 
     // подсчет расстояния между двумя точками
     double count_distance(coord a, coord b) const;

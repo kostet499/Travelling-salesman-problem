@@ -8,12 +8,12 @@ class DinicMatrix {
 private:
     // матрица пропускных способнойстей
     vector < vector <double> > matrix;
-    vector <unsigned> special;
+    vector <int> special;
     // количество вершин, количество ребер
     size_t n, m;
     unsigned start = 0, end = 0;
 public:
-    DinicMatrix(Graph&, vector<int>&, vector<unsigned >&, unsigned, unsigned, bool);
+    DinicMatrix(Graph&, const vector<int>&, const vector<int>&, unsigned, unsigned, bool);
 
     size_t size() const;
 
@@ -23,7 +23,7 @@ public:
 
     unsigned get_end() const;
 
-    const vector <unsigned>& get_special();
+    const vector <int>& get_special();
 
     vector <double>:: iterator begin(unsigned);
 

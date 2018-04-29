@@ -10,7 +10,7 @@ Tester::Tester(int start, int end, int experiments) {
         vector <double> exp(experiments);
         for(int i = 0; i < experiments; i++) {
             vector <double> approx = run_experiment(vers);
-            exp[i] = approx[0] / approx[1];
+            exp[i] = approx[2] / approx[1];
         }
         count_average(vers - start, exp);
     }
@@ -21,18 +21,19 @@ vector <double> Tester::run_experiment(int vertices_count) const {
     DotGenerator doter(0, 0, 1000, 1000, vertices_count);
     const vector<coord> &field = doter.getField();
     Graph graph(field);
-    double mst_app = mst_solution(graph), optimal = bruteforce_solution(graph, mst_app);
+    double mst_app = mst_solution(graph), optimal = bruteforce_solution(graph, mst_app), flow = flow_solution(graph);
     vector <double> approximations;
     approximations.emplace_back(mst_app);
     approximations.emplace_back(optimal);
+    approximations.emplace_back(flow);
     return approximations;
 }
 
 double Tester::flow_solution(Graph& graph) const {
-    unsigned start = 0;
     double answer = 0, current = 0;
     for (unsigned i = 1; i < graph.size(); i++) {
-        current += (*(graph.begin() + start))[i] + graph.build_flow_way(start, i);
+        Graph flow_way = graph.build_flow_way(0, i);
+        current = graph.count_way(flow_way.walk());
         if(current < answer)
             answer = current;
     }
