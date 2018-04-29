@@ -17,6 +17,8 @@ private:
     // создание блокирующего потока
     double break_flow(DinicMatrix &graph, int vertex, double current);
 
+    const vector <int>& get_network();
+
 public:
     explicit MaxFlowApproximation(DinicMatrix &graph);
 

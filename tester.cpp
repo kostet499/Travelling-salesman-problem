@@ -28,6 +28,16 @@ vector <double> Tester::run_experiment(int vertices_count) const {
     return approximations;
 }
 
+double Tester::flow_solution(Graph& graph) const {
+    unsigned start = 0;
+    double answer = 0, current = 0;
+    for (unsigned i = 1; i < graph.size(); i++) {
+        current += (*(graph.begin() + start))[i] + graph.build_flow_way(start, i);
+        if(current < answer)
+            answer = current;
+    }
+    return answer;
+}
 
 double Tester::mst_solution(Graph& graph) const{
     Graph mst = graph.buildMST();

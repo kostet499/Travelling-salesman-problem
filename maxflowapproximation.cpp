@@ -50,10 +50,14 @@ MaxFlowApproximation::MaxFlowApproximation(DinicMatrix &graph) {
 
         fill(pointer.begin(), pointer.end(), 0);
         for(;;) {
-            int additive_current = break_flow(graph, 0, 100000000);
-            if(!additive_current)
+            double additive_current = break_flow(graph, 0, 100000000);
+            if(additive_current < 0.001)
                 break;
             answer += additive_current;
         }
     }
+}
+
+const vector <int>& MaxFlowApproximation::get_network() {
+    return network;
 }

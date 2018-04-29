@@ -27,22 +27,18 @@ public:
     //количество ребер
     size_t edges_count() const;
 
-    unordered_map <int, double>::iterator begin(int vertex);
-
-    unordered_map <int, double>::iterator end(int vertex);
-
     vector <unordered_map <int, double> >:: iterator begin();
 
-    vector <unordered_map <int, double> >:: iterator end();
+    double build_flow_way(unsigned start, unsigned end);
 
     //постройка минимального остовного дерева с помощью алгоритма Прима
-    Graph buildMST();
+    Graph buildMST() const;
 
     // подсчет расстояния между двумя точками
     double count_distance(coord a, coord b) const;
 
     // обход вершин с помощью dfs и возвращения порядка вершин для построения приблизительного решения
-    vector <int> walk();
+    vector <int> walk() const;
 
     // подсчет решения по порядку вершин в массиве order
     double count_way(const vector <int> &order);
@@ -51,7 +47,7 @@ public:
     void optimal_solution(int vertex, double &answer, double &minim, vector <bool> &way, int &vertices);
 
     // дфс обход для приближения
-    void dfs(int vertex, vector <int> &stock, vector <bool> &visited);
+    void dfs(int vertex, vector <int> &stock, vector <bool> &visited) const;
 
     friend istream&operator>> (istream& is, Graph& gr) {
         is >> gr.n >> gr.m;

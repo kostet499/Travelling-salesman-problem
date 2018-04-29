@@ -23,7 +23,7 @@ public:
 
     unsigned get_end() const;
 
-    vector <unsigned>& get_special();
+    const vector <unsigned>& get_special();
 
     vector <double>:: iterator begin(unsigned);
 

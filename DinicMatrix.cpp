@@ -14,9 +14,12 @@ DinicMatrix::DinicMatrix(Graph& graph, vector<int>& network, vector<unsigned> &s
 
     matrix.resize(n);
     for(int i = 0; i < n; i++) {
+        if(special[i] == end)
+            continue;
         matrix[i].resize(n, 0.000);
         for(int j = 0; j < n; j++)
-            matrix[i][j] = (*(graph.begin() + special[i]))[special[j]];
+            if(special[j] != start)
+                matrix[i][j] = (*(graph.begin() + special[i]))[special[j]];
     }
 
     matrix.resize(n);
@@ -38,7 +41,7 @@ unsigned DinicMatrix::get_end() const {
     return end;
 }
 
-vector <unsigned>& DinicMatrix::get_special() {
+const vector <unsigned>& DinicMatrix::get_special() {
     return special;
 }
 

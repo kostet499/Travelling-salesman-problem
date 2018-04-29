@@ -26,14 +26,6 @@ Graph::Graph(size_t size, size_t edges) {
     graph.resize(n);
 };
 
-unordered_map <int, double>::iterator Graph::begin(int vertex) {
-    return graph[vertex].begin();
-}
-
-unordered_map <int, double>::iterator Graph::end(int vertex) {
-    return graph[vertex].end();
-}
-
 size_t Graph::size() const {
     return n;
 }
@@ -46,11 +38,7 @@ vector <unordered_map <int, double> >::iterator Graph::begin() {
     return graph.begin();
 };
 
-vector <unordered_map <int, double> >::iterator Graph::end() {
-    return graph.end();
-};
-
-Graph Graph::buildMST() {
+Graph Graph::buildMST() const {
     Graph mst(graph.size(), graph.size() - 1);
     Ostov tree(graph.size());
     int vertex = 0;
@@ -58,10 +46,10 @@ Graph Graph::buildMST() {
     if (!size() || !edges_count())
         return mst;
     while (!tree.add(vertex)) {
-        for (auto i = begin(vertex); i != end(vertex); i++)
-            if (!tree.in_tree(i->first)) {
-                double bir = i -> second;
-                int num = i -> first;
+        for (auto i : graph[vertex])
+            if (!tree.in_tree(i.first)) {
+                double bir = i.second;
+                int num = i.first;
                 edges.insert(make_pair(bir, num));
             }
 
@@ -79,15 +67,15 @@ Graph Graph::buildMST() {
     return mst;
 }
 
-void Graph::dfs(int vertex, vector <int> &stock, vector <bool> &visited) {
+void Graph::dfs(int vertex, vector <int> &stock, vector <bool> &visited) const {
     stock.emplace_back(vertex);
     visited[vertex] = true;
-    for(auto i = begin(vertex); i != end(vertex); i++)
-        if(!visited[i->first])
-            dfs(i->first, stock, visited);
+    for(auto i : graph[vertex])
+        if(!visited[i.first])
+            dfs(i.first, stock, visited);
 }
 
-vector <int> Graph::walk() {
+vector <int> Graph::walk() const {
     vector <int> stock;
     vector <bool> visited(graph.size(), false);
     dfs(0, stock, visited);
@@ -112,8 +100,8 @@ void Graph::optimal_solution(int vertex, double &answer, double &minim, vector<b
         return;
     }
 
-    for(auto i = begin(vertex); i != end(vertex); i++) {
-        int next = i->first; double weight = i->second;
+    for(auto i : graph[vertex]) {
+        int next = i.first; double weight = i.second;
         if(way[next]) {
             answer += weight;
             if(answer < minim) {
@@ -125,4 +113,8 @@ void Graph::optimal_solution(int vertex, double &answer, double &minim, vector<b
             answer -= weight;
         }
     }
+}
+
+double Graph::build_flow_way(unsigned start, unsigned end) {
+
 }
