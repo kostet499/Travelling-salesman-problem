@@ -122,6 +122,33 @@ main/fast:
 	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+DinicMatrix.obj: DinicMatrix.cpp.obj
+
+.PHONY : DinicMatrix.obj
+
+# target to build an object file
+DinicMatrix.cpp.obj:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/DinicMatrix.cpp.obj
+.PHONY : DinicMatrix.cpp.obj
+
+DinicMatrix.i: DinicMatrix.cpp.i
+
+.PHONY : DinicMatrix.i
+
+# target to preprocess a source file
+DinicMatrix.cpp.i:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/DinicMatrix.cpp.i
+.PHONY : DinicMatrix.cpp.i
+
+DinicMatrix.s: DinicMatrix.cpp.s
+
+.PHONY : DinicMatrix.s
+
+# target to generate assembly for a file
+DinicMatrix.cpp.s:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/DinicMatrix.cpp.s
+.PHONY : DinicMatrix.cpp.s
+
 dotgenerator.obj: dotgenerator.cpp.obj
 
 .PHONY : dotgenerator.obj
@@ -203,6 +230,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+maxflowapproximation.obj: maxflowapproximation.cpp.obj
+
+.PHONY : maxflowapproximation.obj
+
+# target to build an object file
+maxflowapproximation.cpp.obj:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/maxflowapproximation.cpp.obj
+.PHONY : maxflowapproximation.cpp.obj
+
+maxflowapproximation.i: maxflowapproximation.cpp.i
+
+.PHONY : maxflowapproximation.i
+
+# target to preprocess a source file
+maxflowapproximation.cpp.i:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/maxflowapproximation.cpp.i
+.PHONY : maxflowapproximation.cpp.i
+
+maxflowapproximation.s: maxflowapproximation.cpp.s
+
+.PHONY : maxflowapproximation.s
+
+# target to generate assembly for a file
+maxflowapproximation.cpp.s:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/maxflowapproximation.cpp.s
+.PHONY : maxflowapproximation.cpp.s
+
 ostov.obj: ostov.cpp.obj
 
 .PHONY : ostov.obj
@@ -266,6 +320,9 @@ help:
 	@echo ... edit_cache
 	@echo ... main
 	@echo ... rebuild_cache
+	@echo ... DinicMatrix.obj
+	@echo ... DinicMatrix.i
+	@echo ... DinicMatrix.s
 	@echo ... dotgenerator.obj
 	@echo ... dotgenerator.i
 	@echo ... dotgenerator.s
@@ -275,6 +332,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... maxflowapproximation.obj
+	@echo ... maxflowapproximation.i
+	@echo ... maxflowapproximation.s
 	@echo ... ostov.obj
 	@echo ... ostov.i
 	@echo ... ostov.s

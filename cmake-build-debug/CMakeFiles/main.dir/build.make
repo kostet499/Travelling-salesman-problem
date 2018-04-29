@@ -176,13 +176,63 @@ CMakeFiles/main.dir/ostov.cpp.obj.provides: CMakeFiles/main.dir/ostov.cpp.obj.re
 CMakeFiles/main.dir/ostov.cpp.obj.provides.build: CMakeFiles/main.dir/ostov.cpp.obj
 
 
+CMakeFiles/main.dir/maxflowapproximation.cpp.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/maxflowapproximation.cpp.obj: ../maxflowapproximation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/maxflowapproximation.cpp.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\maxflowapproximation.cpp.obj -c "D:\CLion\Traveller salesman problem\maxflowapproximation.cpp"
+
+CMakeFiles/main.dir/maxflowapproximation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/maxflowapproximation.cpp.i"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Traveller salesman problem\maxflowapproximation.cpp" > CMakeFiles\main.dir\maxflowapproximation.cpp.i
+
+CMakeFiles/main.dir/maxflowapproximation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/maxflowapproximation.cpp.s"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Traveller salesman problem\maxflowapproximation.cpp" -o CMakeFiles\main.dir\maxflowapproximation.cpp.s
+
+CMakeFiles/main.dir/maxflowapproximation.cpp.obj.requires:
+
+.PHONY : CMakeFiles/main.dir/maxflowapproximation.cpp.obj.requires
+
+CMakeFiles/main.dir/maxflowapproximation.cpp.obj.provides: CMakeFiles/main.dir/maxflowapproximation.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/maxflowapproximation.cpp.obj.provides.build
+.PHONY : CMakeFiles/main.dir/maxflowapproximation.cpp.obj.provides
+
+CMakeFiles/main.dir/maxflowapproximation.cpp.obj.provides.build: CMakeFiles/main.dir/maxflowapproximation.cpp.obj
+
+
+CMakeFiles/main.dir/DinicMatrix.cpp.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/DinicMatrix.cpp.obj: ../DinicMatrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/DinicMatrix.cpp.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\main.dir\DinicMatrix.cpp.obj -c "D:\CLion\Traveller salesman problem\DinicMatrix.cpp"
+
+CMakeFiles/main.dir/DinicMatrix.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/DinicMatrix.cpp.i"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\CLion\Traveller salesman problem\DinicMatrix.cpp" > CMakeFiles\main.dir\DinicMatrix.cpp.i
+
+CMakeFiles/main.dir/DinicMatrix.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/DinicMatrix.cpp.s"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\CLion\Traveller salesman problem\DinicMatrix.cpp" -o CMakeFiles\main.dir\DinicMatrix.cpp.s
+
+CMakeFiles/main.dir/DinicMatrix.cpp.obj.requires:
+
+.PHONY : CMakeFiles/main.dir/DinicMatrix.cpp.obj.requires
+
+CMakeFiles/main.dir/DinicMatrix.cpp.obj.provides: CMakeFiles/main.dir/DinicMatrix.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/DinicMatrix.cpp.obj.provides.build
+.PHONY : CMakeFiles/main.dir/DinicMatrix.cpp.obj.provides
+
+CMakeFiles/main.dir/DinicMatrix.cpp.obj.provides.build: CMakeFiles/main.dir/DinicMatrix.cpp.obj
+
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.cpp.obj" \
 "CMakeFiles/main.dir/dotgenerator.cpp.obj" \
 "CMakeFiles/main.dir/graph.cpp.obj" \
 "CMakeFiles/main.dir/tester.cpp.obj" \
-"CMakeFiles/main.dir/ostov.cpp.obj"
+"CMakeFiles/main.dir/ostov.cpp.obj" \
+"CMakeFiles/main.dir/maxflowapproximation.cpp.obj" \
+"CMakeFiles/main.dir/DinicMatrix.cpp.obj"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -192,11 +242,13 @@ main.exe: CMakeFiles/main.dir/dotgenerator.cpp.obj
 main.exe: CMakeFiles/main.dir/graph.cpp.obj
 main.exe: CMakeFiles/main.dir/tester.cpp.obj
 main.exe: CMakeFiles/main.dir/ostov.cpp.obj
+main.exe: CMakeFiles/main.dir/maxflowapproximation.cpp.obj
+main.exe: CMakeFiles/main.dir/DinicMatrix.cpp.obj
 main.exe: CMakeFiles/main.dir/build.make
 main.exe: CMakeFiles/main.dir/linklibs.rsp
 main.exe: CMakeFiles/main.dir/objects1.rsp
 main.exe: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable main.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\CLion\Traveller salesman problem\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable main.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\main.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -209,6 +261,8 @@ CMakeFiles/main.dir/requires: CMakeFiles/main.dir/dotgenerator.cpp.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/graph.cpp.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/tester.cpp.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/ostov.cpp.obj.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/maxflowapproximation.cpp.obj.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/DinicMatrix.cpp.obj.requires
 
 .PHONY : CMakeFiles/main.dir/requires
 
