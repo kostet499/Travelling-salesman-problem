@@ -64,6 +64,7 @@ Graph Graph::buildMST() const {
         } while (tree.in_tree(edge.second));
 
         (*(mst.begin() + vertex))[edge.second] = edge.first;
+        (*(mst.begin() + edge.second))[vertex] = edge.first;
         vertex = edge.second;
     }
     return mst;
@@ -101,27 +102,21 @@ double Graph::count_way(const vector <int> &order) {
     return answer;
 }
 
-void Graph::optimal_solution(int vertex, double &answer, double &minim, vector<bool> &way, int &vertices) {
-    way[vertex] = false;
+void Graph::optimal_solution(int vertex, double answer, double &minim, vector<bool> &way, int vertices) {
     if(way.size() == vertices) {
         answer += graph[vertex][0];
         if(answer < minim)
             minim = answer;
-        answer -= graph[vertex][0];
         return;
     }
 
-    for(auto i : graph[vertex]) {
-        int next = i.first; double weight = i.second;
-        if(way[next]) {
-            answer += weight;
-            if(answer < minim) {
-                vertices++;
-                optimal_solution(next, answer, minim, way, vertices);
-                way[next] = true;
-                vertices--;
-            }
-            answer -= weight;
+    for (auto i : graph[vertex]) {
+        int next = i.first;
+        double weight = i.second;
+        if (way[next] && answer < minim) {
+            way[next] = false;
+            optimal_solution(next, answer + weight, minim, way, vertices + 1);
+            way[next] = true;
         }
     }
 }
@@ -182,7 +177,7 @@ void Graph::add_edge(vector<unordered_map<int, double> >& another_graph, int sta
 
 pair <int, int> Graph::choose_edge(const vector <int>& special, const vector <int>& network, unsigned str, unsigned end) {
     int edge_start = -1, edge_end = -1;
-    double min_cost = 1000000000;
+    double min_cost = INT64_MAX;
 
     for(int i = 0; i < network.size(); i++) {
         for(int j = i + 1; j < network.size(); j++) {
@@ -191,12 +186,12 @@ pair <int, int> Graph::choose_edge(const vector <int>& special, const vector <in
             if(special[j] == str && special[i] == end)
                 continue;
 
-            if((network[i] == -1 && network[j] != -1 && graph[j][i] < min_cost)) {
+            if(network[i] == -1 && network[j] != -1 && graph[j][i] < min_cost) {
                 min_cost = graph[j][i];
                 edge_start = special[j];
                 edge_end = special[i];
             }
-            if((network[j] == -1 && network[i] != -1 && graph[i][j] < min_cost)) {
+            if(network[j] == -1 && network[i] != -1 && graph[j][i] < min_cost) {
                 min_cost = graph[i][j];
                 edge_start = special[i];
                 edge_end = special[j];

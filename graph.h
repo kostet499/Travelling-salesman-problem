@@ -48,7 +48,7 @@ public:
     double count_way(const vector <int> &order);
 
     // нахождение оптимального решения перебором за факториал
-    void optimal_solution(int vertex, double &answer, double &minim, vector <bool> &way, int &vertices);
+    void optimal_solution(int vertex, double answer, double &minim, vector <bool> &way, int vertices);
 
     // дфс обход для приближения
     void dfs(int vertex, vector <int> &stock, vector <bool> &visited) const;
