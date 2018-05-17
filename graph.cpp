@@ -136,13 +136,16 @@ void Graph::add_edge(double weight, int starting, int ending) {
 
 void Graph::del_edge(int starting, int ending) {
     if(graph[starting].find(ending) == graph[starting].end())
-        throw;
+        return;
     graph[starting][ending] = 0;
-    graph[ending][starting] = 0;
 };
 
+void Graph::add_one_edge(double weight, int start, int end) {
+    graph[start][end] = weight;
+}
 
-Graph Graph::build_angle_way() {
+double Graph::build_angle_way() {
+    double answer = 0;
     Graph angle(n, n);
     set <int> helper;
     for(int i = 0; i < n; i++)
@@ -161,17 +164,21 @@ Graph Graph::build_angle_way() {
 
     helper.erase(start_vertex);
     helper.erase(end_vertex);
+    answer += graph[start_vertex][end_vertex] * 2;
     angle.add_edge(graph, start_vertex, end_vertex);
     // O(n^4)
     while(!helper.empty()) {
         tuple <int, int, int> triangle = angle.choose_triangle(*this, helper);
         int a = get<0>(triangle), b = get<1>(triangle), c = get<2>(triangle);
         angle.del_edge(a, b);
-        angle.add_edge(graph, a, c);
-        angle.add_edge(graph, b, c);
+        answer -= graph[a][b];
+        angle.add_one_edge(graph[a][c], a, c);
+        answer += graph[a][c];
+        angle.add_one_edge(graph[b][c], b, c);
+        answer += graph[b][c];
         helper.erase(c);
     }
-    return angle;
+    return answer;
 }
 
 tuple <int, int, int> Graph::choose_triangle(Graph& main, set<int> &helper) const{
@@ -182,11 +189,13 @@ tuple <int, int, int> Graph::choose_triangle(Graph& main, set<int> &helper) cons
         int vertex = *it;
         for(int i = 0; i < graph.size(); i++) {
             for(auto ti : graph[i]) {
-                double value = main.fig_angle(i, ti.first, vertex);
-                if(value > max_value) {
-                    beg = i;
-                    end = ti.first;
-                    ver = vertex;
+                if(ti.second > 0.001) {
+                    double value = main.fig_angle(i, ti.first, vertex);
+                    if (value > max_value) {
+                        beg = i;
+                        end = ti.first;
+                        ver = vertex;
+                    }
                 }
             }
         }

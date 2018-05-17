@@ -59,8 +59,7 @@ double Tester::bruteforce_solution(Graph& graph, double border) const{
 }
 
 double Tester::angle_solution(Graph &graph) const {
-    Graph angle = graph.build_angle_way();
-    return graph.count_way(angle.walk());
+    return graph.build_angle_way();
 }
 
 void Tester::count_average(int number, vector <double> &exp) {

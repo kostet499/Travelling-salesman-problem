@@ -49,11 +49,13 @@ public:
     // нахождение оптимального решения перебором за факториал
     void optimal_solution(int, double, double &, vector <bool> &, int);
 
-    Graph build_angle_way();
+    double build_angle_way();
 
     void add_edge(vector < unordered_map <int, double> >&, int, int);
 
     void add_edge(double, int, int);
+
+    void add_one_edge(double, int, int);
 
     double fig_angle(int, int, int);
 
