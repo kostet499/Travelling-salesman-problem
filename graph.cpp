@@ -190,7 +190,7 @@ tuple <int, int, int> Graph::choose_triangle(Graph& main, set<int> &helper) cons
         int vertex = *it;
         for(int i = 0; i < graph.size(); i++) {
             for(auto ti : graph[i]) {
-                if(ti.second > 0.001) {
+                if(ti.second > 0.001 ) {
                     double value = main.fig_angle(i, ti.first, vertex);
                     if (value > max_value) {
                         beg = i;
@@ -204,7 +204,6 @@ tuple <int, int, int> Graph::choose_triangle(Graph& main, set<int> &helper) cons
     }
     return make_tuple(beg, end, ver);
 }
-
 
 double Graph::fig_angle(int a, int b, int c) {
     double ab = graph[a][b], ac = graph[a][c], bc = graph[b][c];

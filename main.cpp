@@ -4,7 +4,9 @@
 using namespace std;
 
 int main() {
-    Tester test(10, 10, 50);
+    int a, b, c;
+    cin >> a >> b >> c;
+    Tester test(a, b, c);
     cout << test;
     return 0;
 }

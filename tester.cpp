@@ -11,7 +11,7 @@ Tester::Tester(int start, int end, int experiments) {
         vector <double> exp(experiments);
         for(int i = 0; i < experiments; i++) {
             vector <double> approx = run_experiment(vers);
-            exp[i] = approx[2] / approx[0];
+            exp[i] = approx[1] / approx[0];
             if(exp[i] > max_diff[vers - start])
                 max_diff[vers - start] = exp[i];
         }
@@ -24,13 +24,13 @@ vector <double> Tester::run_experiment(int vertices_count) const {
     DotGenerator doter(0, 0, 1000, 1000, vertices_count);
     const vector<coord> &field = doter.getField();
     Graph graph(field);
-    double mst_app = mst_solution(graph);
+    //double mst_app = mst_solution(graph);
     double angle_app = angle_solution(graph);
     double optimal = bruteforce_solution(graph, angle_app);
-    //double flow = flow_solution(graph);
+    double flow = flow_solution(graph);
     vector <double> approximations;
     approximations.emplace_back(optimal);
-    approximations.emplace_back(mst_app);
+    //approximations.emplace_back(mst_app);
     approximations.emplace_back(angle_app);
     //approximations.emplace_back(flow);
     return approximations;
