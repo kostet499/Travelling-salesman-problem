@@ -5,12 +5,15 @@ Tester::Tester(int start, int end, int experiments) {
     vertices = end - start;
     average.resize(vertices);
     average_evasion.resize(vertices);
+    max_diff.resize(vertices, 1);
 
     for(int vers = start; vers < end; vers++) {
         vector <double> exp(experiments);
         for(int i = 0; i < experiments; i++) {
             vector <double> approx = run_experiment(vers);
             exp[i] = approx[2] / approx[0];
+            if(exp[i] > max_diff[vers - start])
+                max_diff[vers - start] = exp[i];
         }
         count_average(vers - start, exp);
     }
@@ -22,8 +25,8 @@ vector <double> Tester::run_experiment(int vertices_count) const {
     const vector<coord> &field = doter.getField();
     Graph graph(field);
     double mst_app = mst_solution(graph);
-    double optimal = bruteforce_solution(graph, mst_app);
     double angle_app = angle_solution(graph);
+    double optimal = bruteforce_solution(graph, angle_app);
     //double flow = flow_solution(graph);
     vector <double> approximations;
     approximations.emplace_back(optimal);

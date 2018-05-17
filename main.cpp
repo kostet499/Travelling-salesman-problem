@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    Tester test(4, 10, 100);
+    Tester test(10, 10, 50);
     cout << test;
     return 0;
 }

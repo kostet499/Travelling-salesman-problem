@@ -151,11 +151,12 @@ double Graph::build_angle_way() {
     for(int i = 0; i < n; i++)
         helper.insert(i);
 
-    double max_w = 0;
+    double max_w = 0.001;
     int start_vertex = 0, end_vertex = 0;
     for(int i = 0; i < n; i++) {
         for(auto it : graph[i]) {
             if(it.second > max_w) {
+                max_w = it.second;
                 start_vertex = i;
                 end_vertex = it.first;
             }
@@ -195,6 +196,7 @@ tuple <int, int, int> Graph::choose_triangle(Graph& main, set<int> &helper) cons
                         beg = i;
                         end = ti.first;
                         ver = vertex;
+                        max_value = value;
                     }
                 }
             }

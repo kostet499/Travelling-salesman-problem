@@ -11,7 +11,7 @@ private:
     //количество вершин, на которых произвести тест(передается пользователем)
     unsigned vertices;
     //массивы средних значений и уклонений от среднего для каждой вершины по количеству экспериментов
-    vector <double> average, average_evasion;
+    vector <double> average, average_evasion, max_diff;
 public:
     // конструктор, в котором всё прогоняется
     // [start, end] - диапазон количества вершин для эксперимента, experiments - число
@@ -42,7 +42,7 @@ public:
 
     friend ostream&operator<<(ostream& os, const Tester& test) {
         for(int i = 0; i < test.vertices; i++)
-            cout << test.average[i] << " " << test.average_evasion[i] << endl;
+            cout << test.average[i] << " " << test.average_evasion[i] << " " << test.max_diff[i] << endl;
     }
 };
 
