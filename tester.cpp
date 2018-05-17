@@ -10,7 +10,7 @@ Tester::Tester(int start, int end, int experiments) {
         vector <double> exp(experiments);
         for(int i = 0; i < experiments; i++) {
             vector <double> approx = run_experiment(vers);
-            exp[i] = approx[0] / approx[1];
+            exp[i] = approx[2] / approx[0];
         }
         count_average(vers - start, exp);
     }
@@ -23,10 +23,12 @@ vector <double> Tester::run_experiment(int vertices_count) const {
     Graph graph(field);
     double mst_app = mst_solution(graph);
     double optimal = bruteforce_solution(graph, mst_app);
+    double angle_app = angle_solution(graph);
     //double flow = flow_solution(graph);
     vector <double> approximations;
-    approximations.emplace_back(mst_app);
     approximations.emplace_back(optimal);
+    approximations.emplace_back(mst_app);
+    approximations.emplace_back(angle_app);
     //approximations.emplace_back(flow);
     return approximations;
 }
@@ -49,11 +51,16 @@ double Tester::mst_solution(Graph& graph) const{
 
 double Tester::bruteforce_solution(Graph& graph, double border) const{
     vector<bool> way(graph.size(), true);
-    int size = 1, start_vertex = 0;
+    int size = 1;
     double processing = 0;
-    way[start_vertex] = false;
-    graph.optimal_solution(start_vertex, processing, border, way, size);
+    way[0] = false;
+    graph.optimal_solution(0, processing, border, way, size);
     return border;
+}
+
+double Tester::angle_solution(Graph &graph) const {
+    Graph angle = graph.build_angle_way();
+    return graph.count_way(angle.walk());
 }
 
 void Tester::count_average(int number, vector <double> &exp) {

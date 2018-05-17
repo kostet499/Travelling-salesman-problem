@@ -29,6 +29,8 @@ public:
 
     double flow_solution(Graph&) const;
 
+    double angle_solution(Graph&) const;
+
     // решение перебором
     double bruteforce_solution(Graph&, double) const;
 

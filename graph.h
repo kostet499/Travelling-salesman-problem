@@ -8,6 +8,7 @@
 #include "dotgenerator.h"
 #include <unordered_map>
 #include <iostream>
+#include <set>
 using namespace std;
 
 class Graph {
@@ -34,8 +35,6 @@ public:
     //постройка минимального остовного дерева с помощью алгоритма Прима
     Graph buildMST() const;
 
-    void add_edge(vector < unordered_map <int, double> >&, int starting, int ending);
-
     pair <int, int> choose_edge(const vector <int>&, const vector <int>&, unsigned, unsigned);
 
     // подсчет расстояния между двумя точками
@@ -45,10 +44,22 @@ public:
     vector <int> walk() const;
 
     // подсчет решения по порядку вершин в массиве order
-    double count_way(const vector <int> &order);
+    double count_way(const vector <int>&);
 
     // нахождение оптимального решения перебором за факториал
-    void optimal_solution(int vertex, double answer, double &minim, vector <bool> &way, int vertices);
+    void optimal_solution(int, double, double &, vector <bool> &, int);
+
+    Graph build_angle_way();
+
+    void add_edge(vector < unordered_map <int, double> >&, int, int);
+
+    void add_edge(double, int, int);
+
+    double fig_angle(int, int, int);
+
+    tuple <int, int, int> choose_triangle(Graph&, set <int> &) const;
+
+    void del_edge(int, int);
 
     // дфс обход для приближения
     void dfs(int vertex, vector <int> &stock, vector <bool> &visited) const;

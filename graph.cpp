@@ -1,5 +1,4 @@
 #include "graph.h"
-#include <set>
 #include <queue>
 #include "ostov.h"
 #include "maxflowapproximation.h"
@@ -121,59 +120,87 @@ void Graph::optimal_solution(int vertex, double answer, double &minim, vector<bo
     }
 }
 
-Graph Graph::build_flow_way(unsigned start, unsigned end) {
-    Graph flow_way(graph.size(), graph.size() - 1);
-
-    vector<int> pre_network(graph.size());
-    for(int i = 0; i < pre_network.size(); i++)
-        pre_network[i] = i;
-    DinicMatrix first(*this, pre_network, pre_network, start, end, false);
-    queue <DinicMatrix> myq;
-    myq.push(first);
-
-    while(!myq.empty()) {
-        DinicMatrix &dinic = myq.front();
-        MaxFlow flow(dinic);
-        int start_value = dinic.get_special()[dinic.get_start()], end_value = dinic.get_special()[dinic.get_end()];
-        pair <int, int> edge = this -> choose_edge(dinic.get_special(), flow.get_network(), start_value, end_value);
-
-        flow_way.add_edge(graph, edge.first, edge.second);
-        if(edge.second == end_value) {
-            fill(flow.get_not_const_network().begin(), flow.get_not_const_network().end(), 0);
-            flow.get_not_const_network()[dinic.get_end()] = -1;
-        }
-        DinicMatrix itock(*this, flow.get_network(), dinic.get_special(), start_value, edge.first, false);
-
-        if(edge.first == start_value) {
-            fill(flow.get_not_const_network().begin(), flow.get_not_const_network().end(), -1);
-            flow.get_not_const_network()[dinic.get_start()] = 0;
-        }
-        DinicMatrix stock(*this, flow.get_network(), dinic.get_special(), edge.second, end_value, true);
-        
-        if(itock.size() > 2)
-            myq.push(itock);
-        else if(itock.size() == 2)
-            flow_way.add_edge(graph, itock.get_special()[itock.get_start()], itock.get_special()[itock.get_end()]);
-
-        if(stock.size() > 2)
-            myq.push(stock);
-        else if(stock.size() == 2)
-            flow_way.add_edge(graph, stock.get_special()[stock.get_start()], stock.get_special()[stock.get_end()]);
-        myq.pop();
-    }
-    //костыль, удаление чудом появившися фиктивных ребер
-
-    return flow_way;
-}
-
 void Graph::add_edge(vector<unordered_map<int, double> >& another_graph, int starting, int ending) {
     if(another_graph[starting].find(ending) == another_graph[starting].end())
         throw;
-    if(another_graph[starting][ending] > 0.01)
+    if(another_graph[starting][ending] > 0.001)
         graph[starting][ending] = another_graph[starting][ending];
-    if(another_graph[ending][starting] > 0.01)
+    if(another_graph[ending][starting] > 0.001)
         graph[ending][starting] = another_graph[ending][starting];
 }
+
+void Graph::add_edge(double weight, int starting, int ending) {
+    graph[starting][ending] = weight;
+    graph[ending][starting] = weight;
+}
+
+void Graph::del_edge(int starting, int ending) {
+    if(graph[starting].find(ending) == graph[starting].end())
+        throw;
+    graph[starting][ending] = 0;
+    graph[ending][starting] = 0;
+};
+
+
+Graph Graph::build_angle_way() {
+    Graph angle(n, n);
+    set <int> helper;
+    for(int i = 0; i < n; i++)
+        helper.insert(i);
+
+    double max_w = 0;
+    int start_vertex = 0, end_vertex = 0;
+    for(int i = 0; i < n; i++) {
+        for(auto it : graph[i]) {
+            if(it.second > max_w) {
+                start_vertex = i;
+                end_vertex = it.first;
+            }
+        }
+    }
+
+    helper.erase(start_vertex);
+    helper.erase(end_vertex);
+    angle.add_edge(graph, start_vertex, end_vertex);
+    // O(n^4)
+    while(!helper.empty()) {
+        tuple <int, int, int> triangle = angle.choose_triangle(*this, helper);
+        int a = get<0>(triangle), b = get<1>(triangle), c = get<2>(triangle);
+        angle.del_edge(a, b);
+        angle.add_edge(graph, a, c);
+        angle.add_edge(graph, b, c);
+        helper.erase(c);
+    }
+    return angle;
+}
+
+tuple <int, int, int> Graph::choose_triangle(Graph& main, set<int> &helper) const{
+    int beg = -1, end = -1, ver = -1;
+    double max_value = -1;
+    // O(n^3)
+    for(set<int>::iterator it = helper.begin(); it != helper.end(); it++) {
+        int vertex = *it;
+        for(int i = 0; i < graph.size(); i++) {
+            for(auto ti : graph[i]) {
+                double value = main.fig_angle(i, ti.first, vertex);
+                if(value > max_value) {
+                    beg = i;
+                    end = ti.first;
+                    ver = vertex;
+                }
+            }
+        }
+    }
+    return make_tuple(beg, end, ver);
+}
+
+
+double Graph::fig_angle(int a, int b, int c) {
+    double ab = graph[a][b], ac = graph[a][c], bc = graph[b][c];
+    double cosinus = (pow(ac, 2) + pow(bc, 2) - pow(ab, 2)) / (2 * ac * bc);
+    return acos(cosinus);
+}
+
 
 pair <int, int> Graph::choose_edge(const vector <int>& special, const vector <int>& network, unsigned str, unsigned end) {
     int edge_start = -1, edge_end = -1;
@@ -203,3 +230,48 @@ pair <int, int> Graph::choose_edge(const vector <int>& special, const vector <in
         throw;
     return make_pair(edge_start, edge_end);
 };
+
+Graph Graph::build_flow_way(unsigned start, unsigned end) {
+    Graph flow_way(graph.size(), graph.size() - 1);
+
+    vector<int> pre_network(graph.size());
+    for(int i = 0; i < pre_network.size(); i++)
+        pre_network[i] = i;
+    DinicMatrix first(*this, pre_network, pre_network, start, end, false);
+    queue <DinicMatrix> myq;
+    myq.push(first);
+
+    while(!myq.empty()) {
+        DinicMatrix &dinic = myq.front();
+        MaxFlow flow(dinic);
+        int start_value = dinic.get_special()[dinic.get_start()], end_value = dinic.get_special()[dinic.get_end()];
+        pair <int, int> edge = this -> choose_edge(dinic.get_special(), flow.get_network(), start_value, end_value);
+
+        flow_way.add_edge(graph, edge.first, edge.second);
+        if(edge.second == end_value) {
+            fill(flow.get_not_const_network().begin(), flow.get_not_const_network().end(), 0);
+            flow.get_not_const_network()[dinic.get_end()] = -1;
+        }
+        DinicMatrix itock(*this, flow.get_network(), dinic.get_special(), start_value, edge.first, false);
+
+        if(edge.first == start_value) {
+            fill(flow.get_not_const_network().begin(), flow.get_not_const_network().end(), -1);
+            flow.get_not_const_network()[dinic.get_start()] = 0;
+        }
+        DinicMatrix stock(*this, flow.get_network(), dinic.get_special(), edge.second, end_value, true);
+
+        if(itock.size() > 2)
+            myq.push(itock);
+        else if(itock.size() == 2)
+            flow_way.add_edge(graph, itock.get_special()[itock.get_start()], itock.get_special()[itock.get_end()]);
+
+        if(stock.size() > 2)
+            myq.push(stock);
+        else if(stock.size() == 2)
+            flow_way.add_edge(graph, stock.get_special()[stock.get_start()], stock.get_special()[stock.get_end()]);
+        myq.pop();
+    }
+    //костыль, удаление чудом появившися фиктивных ребер
+
+    return flow_way;
+}
