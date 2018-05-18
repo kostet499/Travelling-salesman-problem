@@ -59,6 +59,8 @@ public:
 
     double fig_angle(int, int, int);
 
+    double fig_edges(int, int, int);
+
     tuple <int, int, int> choose_triangle(Graph&, set <int> &) const;
 
     void del_edge(int, int);

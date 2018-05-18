@@ -184,14 +184,14 @@ double Graph::build_angle_way() {
 
 tuple <int, int, int> Graph::choose_triangle(Graph& main, set<int> &helper) const{
     int beg = -1, end = -1, ver = -1;
-    double max_value = -1;
+    double max_value = -1000000000;
     // O(n^3)
     for(set<int>::iterator it = helper.begin(); it != helper.end(); it++) {
         int vertex = *it;
         for(int i = 0; i < graph.size(); i++) {
             for(auto ti : graph[i]) {
                 if(ti.second > 0.001 ) {
-                    double value = main.fig_angle(i, ti.first, vertex);
+                    double value = main.fig_edges(i, ti.first, vertex);
                     if (value > max_value) {
                         beg = i;
                         end = ti.first;
@@ -203,6 +203,10 @@ tuple <int, int, int> Graph::choose_triangle(Graph& main, set<int> &helper) cons
         }
     }
     return make_tuple(beg, end, ver);
+}
+
+double Graph::fig_edges(int a, int b, int c) {
+    return graph[a][b] - graph[a][c] - graph[b][c];
 }
 
 double Graph::fig_angle(int a, int b, int c) {
