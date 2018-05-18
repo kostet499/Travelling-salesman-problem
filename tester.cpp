@@ -27,7 +27,7 @@ vector <double> Tester::run_experiment(int vertices_count) const {
     //double mst_app = mst_solution(graph);
     double angle_app = angle_solution(graph);
     double optimal = bruteforce_solution(graph, angle_app);
-    double flow = flow_solution(graph);
+    //double flow = flow_solution(graph);
     vector <double> approximations;
     approximations.emplace_back(optimal);
     //approximations.emplace_back(mst_app);
